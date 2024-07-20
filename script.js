@@ -5,9 +5,10 @@ let currentSide = DEFAULT_SIDE;
 
 let mouseDown = false;
 
-const sizeSlider = document.querySelector(".sizeSlider");
 const grid = document.querySelector(".grid");
 const clear = document.querySelector(".clear");
+const sizeSlider = document.querySelector(".sizeSlider");
+const sizeValue = document.querySelector(".sizeValue");
 
 function createGrid(side) {
     for (let i = 0; i < (side * side); i++) {
@@ -33,8 +34,13 @@ clear.addEventListener("click",function() {
     reloadGrid();
 });
 
-sizeSlider.addEventListener("change", function() {
-    changeSize();
+sizeSlider.addEventListener("change", function(e) {
+    setSize(e.target.value);
+    reloadGrid();
+})
+
+sizeSlider.addEventListener("mousemove", function(e) {
+    setSize(e.target.value);
 })
 
 function addColor(e) {
@@ -50,9 +56,9 @@ function reloadGrid() {
     createGrid(currentSide);
 }
 
-function changeSize() {
-    currentSide = sizeSlider.value;
-    reloadGrid();
+function setSize(value) {
+    currentSide = value;
+    sizeValue.textContent = value + " x " + value;
 }
 
 createGrid(DEFAULT_SIDE);
