@@ -1,7 +1,9 @@
 const GRIDSIZE = 600;
 const DEFAULT_SIDE = 16;
+const DEFAULT_COLOR = "black";
 
 let currentSide = DEFAULT_SIDE;
+let currentColor = DEFAULT_COLOR;
 
 let mouseDown = false;
 
@@ -9,6 +11,8 @@ const grid = document.querySelector(".grid");
 const clear = document.querySelector(".clear");
 const sizeSlider = document.querySelector(".sizeSlider");
 const sizeValue = document.querySelector(".sizeValue");
+const eraser = document.querySelector(".eraser");
+const colorMode = document.querySelector(".colorMode");
 
 function createGrid(side) {
     for (let i = 0; i < (side * side); i++) {
@@ -43,9 +47,17 @@ sizeSlider.addEventListener("mousemove", function(e) {
     setSize(e.target.value);
 })
 
+eraser.addEventListener("click",function() {
+    currentColor = "white";
+});
+
+colorMode.addEventListener("click",function() {
+    currentColor = "black";
+});
+
 function addColor(e) {
     if(e.type === "mouseover" && mouseDown == true || e.type === "click") {
-        e.target.style.backgroundColor = "black";
+        e.target.style.backgroundColor = currentColor;
     } else {
         return;
     }
