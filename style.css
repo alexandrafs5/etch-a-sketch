@@ -1,0 +1,20 @@
+body {
+    background-color: aliceblue;
+}
+
+.grid {
+    width: 600px;
+    height: 600px;
+    margin: 100px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: white;
+
+    box-shadow: 10px 10px #D6EAF8;
+}
+
+.gridElement {
+    flex: none;
+    border: 1px solid whitesmoke;
+}
