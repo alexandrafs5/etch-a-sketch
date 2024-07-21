@@ -53,12 +53,16 @@ sizeSlider.addEventListener("mousemove", function(e) {
 
 eraser.addEventListener("click",function() {
     currentMode = "eraser";
+    eraser.classList.add("active");
+    colorMode.classList.remove("active");
+    rainbowMode.classList.remove("active");
 });
 
 colorMode.addEventListener("click",function() {
     currentMode = DEFAULT_MODE;
-    //this.style.backgroundColor = "darkslategrey";
-    //this.style.color = "white";
+    colorMode.classList.add("active");
+    rainbowMode.classList.remove("active");
+    eraser.classList.remove("active");
 });
 
 colorPicker.addEventListener("change", function(e) {
@@ -67,6 +71,9 @@ colorPicker.addEventListener("change", function(e) {
 
 rainbowMode.addEventListener("click", function(e) {
     currentMode = "rainbow";
+    rainbowMode.classList.add("active");
+    colorMode.classList.remove("active");
+    eraser.classList.remove("active");
 })
 
 function addColor(e) {
@@ -101,3 +108,4 @@ function setColor(value) {
 }
 
 createGrid(DEFAULT_SIDE);
+colorMode.classList.add("active");

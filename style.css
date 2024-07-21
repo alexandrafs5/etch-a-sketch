@@ -56,6 +56,11 @@ button:hover {
     cursor: pointer;
 }
 
+.active {
+    color: white;
+    background-color: darkslategrey;
+}
+
 .settings {
     display: flex;
     flex-direction: column;
