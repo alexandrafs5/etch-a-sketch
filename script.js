@@ -16,6 +16,7 @@ const sizeValue = document.querySelector(".sizeValue");
 const eraser = document.querySelector(".eraser");
 const colorMode = document.querySelector(".colorMode");
 const colorPicker = document.querySelector(".colorPicker");
+const rainbowMode = document.querySelector(".rainbowMode");
 
 function createGrid(side) {
     for (let i = 0; i < (side * side); i++) {
@@ -64,12 +65,21 @@ colorPicker.addEventListener("change", function(e) {
     setColor(e.target.value);
 })
 
+rainbowMode.addEventListener("click", function(e) {
+    currentMode = "rainbow";
+})
+
 function addColor(e) {
-    if(e.type === "mouseover" && mouseDown == true || e.type === "click") {
-        if (currentMode == DEFAULT_MODE) {
+    if(e.type === "mouseover" && mouseDown === true || e.type === "click") {
+        if (currentMode === DEFAULT_MODE) {
             e.target.style.backgroundColor = currentColor;
-        } else if (currentMode == "eraser") {
+        } else if (currentMode === "eraser") {
             e.target.style.backgroundColor = "white";
+        } else if (currentMode === "rainbow") {
+            const randomR = Math.floor(Math.random() * 256);
+            const randomG = Math.floor(Math.random() * 256);
+            const randomB = Math.floor(Math.random() * 256);
+            e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
         }
     } else {
         return;
