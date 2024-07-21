@@ -102,3 +102,28 @@ button:hover {
     background: darkslategrey;
     cursor: pointer;
 }
+
+.colorPicker {
+    display: inline-flex;
+    vertical-align: bottom;
+    border: none;
+    border-radius: 15px;
+    padding: 0;
+    height: 40px;
+    width: 100%;
+    cursor: pointer;
+}
+
+::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+::-webkit-color-swatch {
+    border: 0;
+    border-radius: 15px;
+}
+  
+::-moz-color-swatch {
+    border: 0;
+    border-radius: 15px;
+}

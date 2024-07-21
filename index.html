@@ -7,11 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
-    <div class="header">
-        <p class="title">Etch-A-Sketch</p>
-    </div>
     <div class="content">
         <div class="settings">
+            <input type="color" class="colorPicker">
             <button class="colorMode">Color Mode</button>
             <button class="eraser">Eraser</button>
             <button class="clear">Clear</button>
@@ -20,7 +18,12 @@
                 <input class="sizeSlider" type="range" value="16" min="1" max="100" />
             </div>
         </div>
-        <div class="grid"></div>
+        <div>
+            <div class="header">
+                <p class="title">Etch-A-Sketch</p>
+            </div>
+            <div class="grid"></div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

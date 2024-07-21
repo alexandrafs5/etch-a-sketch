@@ -1,7 +1,9 @@
 const GRIDSIZE = 600;
 const DEFAULT_SIDE = 16;
 const DEFAULT_COLOR = "black";
+const DEFAULT_MODE = "color";
 
+let currentMode = DEFAULT_MODE;
 let currentSide = DEFAULT_SIDE;
 let currentColor = DEFAULT_COLOR;
 
@@ -13,6 +15,7 @@ const sizeSlider = document.querySelector(".sizeSlider");
 const sizeValue = document.querySelector(".sizeValue");
 const eraser = document.querySelector(".eraser");
 const colorMode = document.querySelector(".colorMode");
+const colorPicker = document.querySelector(".colorPicker");
 
 function createGrid(side) {
     for (let i = 0; i < (side * side); i++) {
@@ -48,16 +51,26 @@ sizeSlider.addEventListener("mousemove", function(e) {
 })
 
 eraser.addEventListener("click",function() {
-    currentColor = "white";
+    currentMode = "eraser";
 });
 
 colorMode.addEventListener("click",function() {
-    currentColor = "black";
+    currentMode = DEFAULT_MODE;
+    //this.style.backgroundColor = "darkslategrey";
+    //this.style.color = "white";
 });
+
+colorPicker.addEventListener("change", function(e) {
+    setColor(e.target.value);
+})
 
 function addColor(e) {
     if(e.type === "mouseover" && mouseDown == true || e.type === "click") {
-        e.target.style.backgroundColor = currentColor;
+        if (currentMode == DEFAULT_MODE) {
+            e.target.style.backgroundColor = currentColor;
+        } else if (currentMode == "eraser") {
+            e.target.style.backgroundColor = "white";
+        }
     } else {
         return;
     }
@@ -71,6 +84,10 @@ function reloadGrid() {
 function setSize(value) {
     currentSide = value;
     sizeValue.textContent = value + " x " + value;
+}
+
+function setColor(value) {
+    currentColor = value;
 }
 
 createGrid(DEFAULT_SIDE);
