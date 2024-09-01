@@ -2,6 +2,8 @@
 
 Live: https://alexandrafs5.github.io/etch-a-sketch/
 
+Created with HTML, CSS and JavaScript
+
 Features:
 
 - Color mode
