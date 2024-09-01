@@ -93,11 +93,11 @@ button:hover {
     -webkit-transition: .2s;
     transition: opacity .2s;
 }
-  
+
 .sizeSlider:hover {
     opacity: 1;
 }
-  
+
 .sizeSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -127,7 +127,7 @@ button:hover {
     border: 0;
     border-radius: 15px;
 }
-  
+
 ::-moz-color-swatch {
     border: 0;
     border-radius: 15px;
